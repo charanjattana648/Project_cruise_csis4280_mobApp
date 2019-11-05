@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/imgback"
+    android:background="@drawable/picback"
     tools:context=".Welcome" >
 
     <TextView
@@ -18,12 +18,12 @@
         android:layout_marginBottom="168dp"
         android:text="Welcome to Paradise"
         android:textAllCaps="true"
-        android:textColor="#A58C18"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="@font/bungee_shade"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.652"
         app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
