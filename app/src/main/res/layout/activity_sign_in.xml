@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/imgback"
+    android:background="@drawable/picback"
     tools:context=".SignIn">
 
     <EditText
@@ -20,15 +20,13 @@
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
-        android:textColor="?attr/colorBackgroundFloating"
-        android:textColorHint="?attr/colorBackgroundFloating"
-        android:textColorLink="?attr/colorBackgroundFloating"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <EditText
         android:id="@+id/pass_txt"
@@ -43,13 +41,13 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
-        android:textColorHint="?attr/colorBackgroundFloating"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintVertical_bias="0.244" />
 
     <Button
         android:id="@+id/register_Btn"
@@ -61,13 +59,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:text="Sign in"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
+        app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.912" />
+        app:layout_constraintVertical_bias="0.419" />
 
 </android.support.constraint.ConstraintLayout>
