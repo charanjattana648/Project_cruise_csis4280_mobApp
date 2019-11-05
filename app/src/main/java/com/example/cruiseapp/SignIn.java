@@ -15,6 +15,7 @@ public class SignIn extends AppCompatActivity implements OnEventListener<String>
     EditText email,psw;
     Button btn_login;
     Intent mainActivity_intent;
+    ParamConcatenation pc=new ParamConcatenation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,11 @@ public class SignIn extends AppCompatActivity implements OnEventListener<String>
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String site="http://54.175.177.16:8000";
+                String site=pc.getIp(SignIn.this);
 //                String site= String.valueOf(R.string.site);
-                site+="/login";
+                site+="login";
                 String field[]={"email","psw"};
                 String field_values[]={email.getText().toString(),psw.getText().toString()};
-                ParamConcatenation pc=new ParamConcatenation();
                 String params=pc.putParamsTogether(field,field_values);
                 mainActivity_intent=new Intent(SignIn.this,MainActivity.class);
                 new DownloadAsync(SignIn.this).execute(site,params);
