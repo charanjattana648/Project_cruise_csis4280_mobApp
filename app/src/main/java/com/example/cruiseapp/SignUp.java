@@ -13,6 +13,7 @@ public class SignUp extends AppCompatActivity implements OnEventListener<String>
     EditText firstName,lastName,email,pass,confirm_pass;
     Button btn_register;
     Intent signIn_intent;
+    ParamConcatenation pc=new ParamConcatenation();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +39,11 @@ public class SignUp extends AppCompatActivity implements OnEventListener<String>
                 {
 //                    String site= String.valueOf(R.string.site);
 
-                    String site="http://54.175.177.16:8000";
-                    site+="/signUp";
+                   // String site="http://54.175.177.16:8000";
+                    String site=pc.getIp(SignUp.this);
+                    site+="signUp";
                     String fields[]={"firstName","lastName","email","psw"};
                     String field_values[]={fn,ln,em,psw};
-                    ParamConcatenation pc=new ParamConcatenation();
                     String params=pc.putParamsTogether(fields,field_values);
                     signIn_intent=new Intent(SignUp.this,SignIn.class);
                     new DownloadAsync(SignUp.this).execute(site,params);
