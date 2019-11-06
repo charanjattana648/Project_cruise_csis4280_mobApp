@@ -84,13 +84,13 @@ public class DownloadAsync extends AsyncTask<String,Integer,String> {
     @Override
     protected void onPostExecute(String result) {
         Log.d("success...test..", "onPostExecute: "+result);
-        String res[]=result.split(":");
-        if(res[0].equalsIgnoreCase("ok"))
-        {
+//        String res[]=result.split(":");
+//        if(res[0].equalsIgnoreCase("ok"))
+//        {
             theCallBack.onSuccess(result);
-        }else {
-            theCallBack.onFailure(result);
-        }
+//        }else {
+//            theCallBack.onFailure(result);
+//        }
     }
 
 
