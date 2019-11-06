@@ -35,7 +35,7 @@ public class ParamConcatenation {
         try {
 
             reader = new BufferedReader(
-                    new InputStreamReader(context.getAssets().open("ip_address.txt")));
+                    new InputStreamReader(context.getAssets().open("ipAddress.txt")));
 
             // do reading, usually loop until end of file reading
             String mLine;
