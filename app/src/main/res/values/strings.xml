@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">cruise App</string>
     <string name="site">"http://54.175.177.16:8000"</string>
+    <string name="selectCruise">Select Cruise</string>
+    <string name="selectDest">Select Destination</string>
+    <string name="selectDay">Select Days</string>
 
 
 </resources>
