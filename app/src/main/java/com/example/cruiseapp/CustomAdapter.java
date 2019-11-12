@@ -36,6 +36,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.myCustomAd
         myCustomAdapterHolder.txt_comp_name.setText(c.getCompanyName());
         myCustomAdapterHolder.txt_cruise_name.setText(c.getCruiseName());
         Picasso.get().load(c.getCruiseImage()).into(myCustomAdapterHolder.cruise_img);
+        myCustomAdapterHolder.txt_guest.setText(c.getGuests()+"");
+        myCustomAdapterHolder.txt_crew.setText(c.getCrew()+"");
+        String d="";
+        for(int j=0;j<c.getDeparts_from().length;j++)
+        {
+            d+=c.getDeparts_from()[j]+" ";
+        }
+        myCustomAdapterHolder.txt_depart.setText(d);
+        String s="";
+        for(int k=0;k<c.getDeparts_from().length;k++)
+        {
+            s+=c.getDeparts_from()[k]+" ";
+        }
+        myCustomAdapterHolder.txt_sail.setText(s);
 
 
     }
@@ -50,13 +64,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.myCustomAd
     }
 
     public class myCustomAdapterHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView txt_comp_name,txt_cruise_name;
+        TextView txt_comp_name,txt_cruise_name , txt_crew,txt_depart,txt_sail , txt_guest;
         ImageView cruise_img;
         public myCustomAdapterHolder(@NonNull final View itemView) {
             super(itemView);
             txt_comp_name=itemView.findViewById(R.id.txt_cname_val);
             txt_cruise_name=itemView.findViewById(R.id.txt_cruiseName_val);
             cruise_img=itemView.findViewById(R.id.cruise_imageView);
+            txt_guest = itemView.findViewById(R.id.txt_guest3);
+            txt_crew = itemView.findViewById(R.id.txt_crew);
+            txt_depart = itemView.findViewById(R.id.txt_Depart);
+            txt_sail = itemView.findViewById(R.id.txt_sail);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

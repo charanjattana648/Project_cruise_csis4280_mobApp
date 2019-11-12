@@ -6,9 +6,96 @@
     android:layout_height="wrap_content"
     android:paddingBottom="20sp">
 
+    <TextView
+        android:id="@+id/txt_sail"
+        android:layout_width="307dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="124dp"
+        app:layout_constraintStart_toEndOf="@+id/lbl_cGuest"
+        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+
+    <TextView
+        android:id="@+id/lbl_cSail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="124dp"
+        android:text="Sails To :"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+
+    <TextView
+        android:id="@+id/txt_guest3"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toEndOf="@+id/lbl_cGuest"
+        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+
+    <TextView
+        android:id="@+id/lbl_cGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="60dp"
+        android:text="Guests :"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+
+    <TextView
+        android:id="@+id/txt_Depart"
+        android:layout_width="288dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/lbl_cDepart"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cruiseName_val" />
+
+    <TextView
+        android:id="@+id/lbl_cDepart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="88dp"
+        android:text="Departs from :"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+
+    <TextView
+        android:id="@+id/txt_crew"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintStart_toEndOf="@+id/lbl_cCrew"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cruiseName_val" />
+
+    <TextView
+        android:id="@+id/lbl_cCrew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="196dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginTop="60dp"
+        android:text="Crew :"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+
     <ImageView
         android:id="@+id/cruise_imageView"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,33 +117,37 @@
 
     <TextView
         android:id="@+id/txt_cname_val"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="196dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/lbl_cName"
         app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
 
     <TextView
         android:id="@+id/txt_cruiseName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="103dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Cruise Name : "
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/txt_cname_val"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
 
     <TextView
         android:id="@+id/txt_cruiseName_val"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="220dp"
+        android:layout_width="197dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="244dp"
         app:layout_constraintStart_toEndOf="@+id/txt_cruiseName"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
