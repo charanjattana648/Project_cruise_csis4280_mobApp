@@ -1,5 +1,6 @@
 package com.example.cruiseapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -60,6 +61,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.myCustomAd
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(itemView.getContext(), "Hello Welcome", Toast.LENGTH_SHORT).show();
+                    Intent cruiseDetail_intent=new Intent(itemView.getContext(),CruiseDetailActivity.class);
+                    cruiseDetail_intent.putExtra("name",txt_cruise_name.getText());
+                    itemView.getContext().startActivity(cruiseDetail_intent);
                 }
             });
         }
