@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import org.json.JSONArray;
@@ -27,7 +28,17 @@ public class CruiseRVListActivity extends AppCompatActivity implements OnEventLi
         ArrayList<Cruise> cruise_arrayList=new ArrayList<>();
         if(intent!=null)
         {
-            cruise_arrayList=getCruiseList(intent.getStringExtra("cruiseData"));
+            Log.d("json string ", "onCreate: "+intent.getStringExtra("cruiseData"));
+            String[] res=intent.getStringExtra("cruiseData").split("@:");
+            String result=res[0];
+
+            Log.d("json data ", "onCreate: "+result);
+            if(res.length==2)
+            {
+                result=res[1];
+            }
+            Log.d("json data ", "onCreate: "+result);
+            cruise_arrayList=getCruiseList(result);
             customAdapter=new CustomAdapter(cruise_arrayList);
             recyclerView.setAdapter(customAdapter);
 
