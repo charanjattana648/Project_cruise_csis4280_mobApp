@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
     Button btn_find_Cruise;
     Intent intent;
     Spinner cruise_spinner,day_spinner,destination_spinner;
+    ArrayAdapter<String> cruiseName_adapter,cruiseDest_adapter,cruiseDays_adapter;
+    ArrayList<String> CruiseNameList,CruiseDestList,CruiseDayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +37,28 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
         cruise_spinner=findViewById(R.id.selectCruise_spinner);
         day_spinner=findViewById(R.id.selectDay_spinner);
         destination_spinner=findViewById(R.id.selectDest_spinner);
-        ArrayList<String> CruiseNameList=new ArrayList<>(Arrays.asList("c1","c2"));
-        ArrayAdapter<String> cruise_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseNameList);
-        cruise_spinner.setAdapter(cruise_adapter);
+        pc=new ParamConcatenation();
+        String site=pc.getIp(MainActivity.this);
+        site+="cruiseNameList";
+        new DownloadAsync(MainActivity.this).execute(site,"");
+
+        cruise_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String site=pc.getIp(MainActivity.this);
+                site+="cruiseDestList";
+                String[] field={"cruiseName"};
+                String[] value={parent.getItemAtPosition(position).toString()};
+                String params=pc.putParamsTogether(field,value);
+                new DownloadAsync(MainActivity.this).execute(site,params);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         btn_find_Cruise.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +81,33 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
     public void onSuccess(String result) {
         Log.d("test data...", "onSuccess: "+result);
 
-            intent.putExtra("cruiseData",result);
-            startActivity(intent);
+            String[] res=result.split("@:");
+
+            switch (res[0].trim())
+            {
+                case "CruiseList":
+                    intent.putExtra("cruiseData",res[1]);
+                    startActivity(intent);
+                    break;
+                case "CruiseNames":
+                    String[] names=res[1].split(",");
+                    CruiseNameList=new ArrayList<>(Arrays.asList(names));
+                    cruiseName_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseNameList);
+                    cruise_spinner.setAdapter(cruiseName_adapter);
+                    break;
+                case "DestinationsList":
+                    String[] destinations=res[1].split(",");
+                    CruiseDestList=new ArrayList<>(Arrays.asList(destinations));
+                    cruiseDest_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseDestList);
+                    destination_spinner.setAdapter(cruiseDest_adapter);
+                    break;
+                case "DaysList":
+                    String[] dayList=res[1].split(",");
+                    CruiseDayList=new ArrayList<>(Arrays.asList(dayList));
+                    cruiseDays_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseDayList);
+                    cruise_spinner.setAdapter(cruiseDays_adapter);
+                    break;
+            }
     }
 
     @Override
