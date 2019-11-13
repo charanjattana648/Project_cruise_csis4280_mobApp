@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
     ParamConcatenation pc=new ParamConcatenation();
     Button btn_find_Cruise;
     Intent intent;
+    String data[];
     Spinner cruise_spinner,day_spinner,destination_spinner;
     ArrayAdapter<String> cruiseName_adapter,cruiseDest_adapter,cruiseDays_adapter;
     ArrayList<String> CruiseNameList,CruiseDestList,CruiseDayList;
@@ -41,16 +42,34 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
         String site=pc.getIp(MainActivity.this);
         site+="cruiseNameList";
         new DownloadAsync(MainActivity.this).execute(site,"");
+        site=pc.getIp(MainActivity.this);
+        site+="cruiseDestList";
+        String[] field={"cruiseName"};
+        String[] value={""};
+        String params=pc.putParamsTogether(field,value);
+        new DownloadAsync(MainActivity.this).execute(site,params);
+
+        site=pc.getIp(MainActivity.this);
+        site+="daysList";
+        String[] field_day={"cruiseDestination"};
+        String[] value_day={""};
+        params=pc.putParamsTogether(field_day,value_day);
+        new DownloadAsync(MainActivity.this).execute(site,params);
 
         cruise_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String site=pc.getIp(MainActivity.this);
-                site+="cruiseDestList";
-                String[] field={"cruiseName"};
-                String[] value={parent.getItemAtPosition(position).toString()};
-                String params=pc.putParamsTogether(field,value);
-                new DownloadAsync(MainActivity.this).execute(site,params);
+                if(position!=0) {
+//                    String site = pc.getIp(MainActivity.this);
+//                    site += "cruiseDestList";
+//                    String[] field = {"cruiseName"};
+//                    String[] value = {parent.getItemAtPosition(position).toString()};
+//                    String params = pc.putParamsTogether(field, value);
+//                    new DownloadAsync(MainActivity.this).execute(site, params);
+                    changeSpinnerAdapter( "cruiseDestList", "cruiseName", parent.getItemAtPosition(position).toString().trim());
+                   // changeSpinnerAdapter( "daysList", "cruiseDestination", parent.getItemAtPosition(position).toString());
+
+                }
             }
 
             @Override
@@ -58,6 +77,31 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
 
             }
         });
+
+        destination_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position!=0) {
+//                    String site = pc.getIp(MainActivity.this);
+//                    site+="daysList";
+//                    String[] field={"cruiseDestination"};
+//                    String[] value = {parent.getItemAtPosition(position).toString()};
+//                    String params = pc.putParamsTogether(field, value);
+//                    new DownloadAsync(MainActivity.this).execute(site, params);
+
+                    changeSpinnerAdapter( "daysList", "cruiseDestination", parent.getItemAtPosition(position).toString().trim());
+                    Log.d("test da", "onClick: entering");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
 
 
         btn_find_Cruise.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +120,15 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
 
     }
 
+    public void changeSpinnerAdapter(String siteFilter,String fieldName,String filtername)
+    {
+        String site = pc.getIp(MainActivity.this);
+        site+=siteFilter;
+        String[] field={fieldName};
+        String[] value = {filtername};
+        String params = pc.putParamsTogether(field, value);
+        new DownloadAsync(MainActivity.this).execute(site, params);
+    }
 
     @Override
     public void onSuccess(String result) {
@@ -90,24 +143,38 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
                     startActivity(intent);
                     break;
                 case "CruiseNames":
-                    String[] names=res[1].split(",");
-                    CruiseNameList=new ArrayList<>(Arrays.asList(names));
-                    cruiseName_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseNameList);
-                    cruise_spinner.setAdapter(cruiseName_adapter);
+//                    String[] names=res[1].split(",");
+//                    CruiseNameList=new ArrayList<>(Arrays.asList(names));
+//                    CruiseNameList.add(0,"Select CruiseName");
+//                    cruiseName_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseNameList);
+//                    cruise_spinner.setAdapter(cruiseName_adapter);
+
+                    data=res[1].split(",");
+                    setSpinnerAdapter(data,"Select CruiseName",cruise_spinner);
                     break;
                 case "DestinationsList":
-                    String[] destinations=res[1].split(",");
-                    CruiseDestList=new ArrayList<>(Arrays.asList(destinations));
-                    cruiseDest_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseDestList);
-                    destination_spinner.setAdapter(cruiseDest_adapter);
+//                    String[] destinations=res[1].split(",");
+//                    CruiseDestList=new ArrayList<>(Arrays.asList(destinations));
+//                    CruiseDestList.add(0,"Select Destination");
+//                    cruiseDest_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseDestList);
+//                    destination_spinner.setAdapter(cruiseDest_adapter);
+
+                    data=res[1].split(",");
+                    setSpinnerAdapter(data,"Select Destination",destination_spinner);
                     break;
                 case "DaysList":
-                    String[] dayList=res[1].split(",");
-                    CruiseDayList=new ArrayList<>(Arrays.asList(dayList));
-                    cruiseDays_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseDayList);
-                    cruise_spinner.setAdapter(cruiseDays_adapter);
+                    data=res[1].split(",");
+                    setSpinnerAdapter(data,"Select Number of Days",day_spinner);
                     break;
             }
+    }
+
+    public void setSpinnerAdapter(String[] res,String title,Spinner spinner)
+    {
+        CruiseDayList=new ArrayList<>(Arrays.asList(res));
+        CruiseDayList.add(0,title);
+        cruiseDays_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseDayList);
+        spinner.setAdapter(cruiseDays_adapter);
     }
 
     @Override
