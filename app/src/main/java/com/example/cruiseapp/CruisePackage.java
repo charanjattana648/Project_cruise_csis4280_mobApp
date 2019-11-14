@@ -2,7 +2,7 @@ package com.example.cruiseapp;
 
 import java.util.Date;
 
-public class CruisePakage {
+public class CruisePackage {
     private String PackageName;
     private String CruiseName;
     private Date DeptDate;
