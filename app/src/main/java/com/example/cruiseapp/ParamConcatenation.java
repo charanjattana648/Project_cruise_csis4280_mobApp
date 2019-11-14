@@ -2,6 +2,7 @@ package com.example.cruiseapp;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,6 +26,7 @@ public class ParamConcatenation {
             }
             sb.append(field[i]).append("=").append(field_values[i]);
         }
+        Log.d("site...", "putParamsTogether: "+sb.toString());
         return sb.toString();
     }
 

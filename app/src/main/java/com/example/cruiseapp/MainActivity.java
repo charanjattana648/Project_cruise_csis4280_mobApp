@@ -107,13 +107,47 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
         btn_find_Cruise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //filterNames
                 String site=pc.getIp(MainActivity.this);
-                site+="cruiseList";
-                String field[]={};
-                String fieldValues[]={};
-                String params=pc.putParamsTogether(field,fieldValues);
-                intent=new Intent(MainActivity.this,CruiseRVListActivity.class);
-                new DownloadAsync(MainActivity.this).execute(site,params);
+                site+="filterNames";
+                String field_str="";
+                String fieldValues_str="";
+                int i=0;
+                if(cruise_spinner.getSelectedItemPosition()!=0)
+                {
+                    field_str+="cruiseName";
+                    fieldValues_str+=cruise_spinner.getSelectedItem().toString();
+                    Log.d("ffi ", "cruise_spinner: "+cruise_spinner.getSelectedItem().toString());
+                    i++;
+                }
+                if(day_spinner.getSelectedItemPosition()!=0)
+                {
+                    if(i>0)
+                    {field_str+=",";fieldValues_str+=",";}
+                    field_str+="numOfDays";
+                    fieldValues_str+=day_spinner.getSelectedItem().toString();
+                    Log.d("ffi ", "day_spinner: "+day_spinner.getSelectedItem().toString());
+                    i++;
+                }
+                if(destination_spinner.getSelectedItemPosition()!=0)
+                {
+                    if(i>0)
+                    {field_str+=",";fieldValues_str+=",";}
+                    field_str+="cruiseDestination";
+                    fieldValues_str+=destination_spinner.getSelectedItem().toString();
+                    Log.d("ffi ", "onClick: destination_spinner : "+destination_spinner.getSelectedItem().toString());
+                    i++;
+                }
+
+                if(i==0)
+                {
+                    new DownloadAsync(MainActivity.this).execute(site,"");
+                }else{
+                    String params=pc.putParamsTogether(field_str.split(","),fieldValues_str.split(","));
+                    new DownloadAsync(MainActivity.this).execute(site,params);
+                }
+                //intent=new Intent(MainActivity.this,CruiseRVListActivity.class);
+
                 Log.d("test da", "onClick: entering");
             }
         });
@@ -143,22 +177,10 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
                     startActivity(intent);
                     break;
                 case "CruiseNames":
-//                    String[] names=res[1].split(",");
-//                    CruiseNameList=new ArrayList<>(Arrays.asList(names));
-//                    CruiseNameList.add(0,"Select CruiseName");
-//                    cruiseName_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseNameList);
-//                    cruise_spinner.setAdapter(cruiseName_adapter);
-
                     data=res[1].split(",");
                     setSpinnerAdapter(data,"Select CruiseName",cruise_spinner);
                     break;
                 case "DestinationsList":
-//                    String[] destinations=res[1].split(",");
-//                    CruiseDestList=new ArrayList<>(Arrays.asList(destinations));
-//                    CruiseDestList.add(0,"Select Destination");
-//                    cruiseDest_adapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,CruiseDestList);
-//                    destination_spinner.setAdapter(cruiseDest_adapter);
-
                     data=res[1].split(",");
                     setSpinnerAdapter(data,"Select Destination",destination_spinner);
                     break;
@@ -166,6 +188,18 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
                     data=res[1].split(",");
                     setSpinnerAdapter(data,"Select Number of Days",day_spinner);
                     break;
+                case "FilteredNames":
+                    Log.d("ffil --", "onSuccess: "+res[1]);
+                    String site=pc.getIp(MainActivity.this);
+                    site+="cruiseList";
+                    String r=res[1].trim()+",Carnival Dream";
+                    String[] field={"cruiseName"};
+                    String[] value={r};
+                    String params=pc.putParamsTogether(field,value);
+                    intent=new Intent(MainActivity.this,CruiseRVListActivity.class);
+                    new DownloadAsync(MainActivity.this).execute(site,params);
+                    break;
+
             }
     }
 
