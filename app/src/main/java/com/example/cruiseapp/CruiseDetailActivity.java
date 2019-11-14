@@ -59,13 +59,21 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
         switch (v.getId())
         {
             case R.id.view_cabin:
+                String site=pc.getIp(CruiseDetailActivity.this);
+                site+="cabins";
+                String param=pc.putParamsTogether(field,value);
+                new DownloadAsync(CruiseDetailActivity.this).execute(site,param);
                 break;
             case R.id.view_map :
+                site=pc.getIp(CruiseDetailActivity.this);
+                site+="routeDetails";
+                param=pc.putParamsTogether(field,value);
+                new DownloadAsync(CruiseDetailActivity.this).execute(site,param);
                 break;
             case R.id.view_dining :
-                String site=pc.getIp(CruiseDetailActivity.this);
+                site=pc.getIp(CruiseDetailActivity.this);
                 site+="diningList";
-                String param=pc.putParamsTogether(field,value);
+                param=pc.putParamsTogether(field,value);
                 new DownloadAsync(CruiseDetailActivity.this).execute(site,param);
                 break;
             case R.id.view_Activity:
@@ -90,22 +98,35 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
         switch (res[0].trim())
         {
             case "Activity":
-                startActivityIntent(res[1].split(","),"Activity");
+                startActivityIntent(res[1],"itemlist","Activity");
                 break;
             case "Entertainment":
-                startActivityIntent(res[1].split(","),"Entertainment");
+                startActivityIntent(res[1],"itemlist","Entertainment");
                 break;
             case "Dining":
-                startActivityIntent(res[1].split(","),"Dining");
+                startActivityIntent(res[1],"itemlist","Dining");
+                break;
+            case "RouteDetails":
+                startActivityIntent(res[1],"package","RouteDetails");
+                break;
+            case "Cabins":
+                Log.d("res....", "on cabins : "+res[1]);
+                startActivityIntent(res[1],"cabin","CabinDetails");
                 break;
         }
     }
 
-    public void startActivityIntent(String[] res,String name)
+    public void startActivityIntent(String res,String listname,String name)
     {
         intent_activity=new Intent(CruiseDetailActivity.this,CruiseActivitiesAndCabin.class);
         intent_activity.putExtra("itemname",name);
-        intent_activity.putExtra("itemlist",res);
+        if(listname.equalsIgnoreCase("itemlist"))
+        {
+
+            intent_activity.putExtra(listname,res.split(","));
+        }else{
+            intent_activity.putExtra(listname,res);
+        }
         startActivity(intent_activity);
     }
 

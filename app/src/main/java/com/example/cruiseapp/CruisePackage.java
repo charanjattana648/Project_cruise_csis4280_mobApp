@@ -5,7 +5,7 @@ import java.util.Date;
 public class CruisePackage {
     private String PackageName;
     private String CruiseName;
-    private Date DeptDate;
+    private String DeptDate;
     private int Num_Days;
     private String Departs_from;
     private String Sails_to;
@@ -27,11 +27,11 @@ public class CruisePackage {
         CruiseName = cruiseName;
     }
 
-    public Date getDeptDate() {
+    public String getDeptDate() {
         return DeptDate;
     }
 
-    public void setDeptDate(Date deptDate) {
+    public void setDeptDate(String deptDate) {
         DeptDate = deptDate;
     }
 

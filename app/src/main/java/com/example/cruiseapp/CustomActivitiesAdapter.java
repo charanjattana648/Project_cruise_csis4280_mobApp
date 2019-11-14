@@ -59,6 +59,7 @@ public class CustomActivitiesAdapter  extends RecyclerView.Adapter<CustomActivit
     public int getItemCount() {
         return item_list.size();
     }
+
     public class myCustomActivitiesAdapterHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txt_item_title,txt_item_value;
         ImageView activity_img;
