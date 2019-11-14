@@ -43,7 +43,6 @@ public class CruiseRVListActivity extends AppCompatActivity implements OnEventLi
             recyclerView.setAdapter(customAdapter);
 
             LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-
             recyclerView.setLayoutManager(linearLayoutManager);
 
         }
