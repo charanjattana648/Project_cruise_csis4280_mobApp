@@ -57,7 +57,8 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
                     recyclerView.setAdapter(customMapAdapter);
                     break;
                 case "CabinDetails":
-                   // ArrayList<CruiseCabin> cabinList=getCabinList(cabin_str);
+                    ArrayList<CruiseCabin> cabinList=getCabinList(cabin_str);
+                    Log.d("res ..a", "onCreate: "+cabinList.get(0).getType());
                     //customMapAdapter=new CustomMapAdapter(packagesList);
                     //recyclerView.setAdapter(customMapAdapter);
                     break;
@@ -74,26 +75,42 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
 
     private ArrayList<CruiseCabin> getCabinList(String result) {
         JSONArray cruiseArray=null;
+        JSONArray cruiseObjArr=null;
         JSONObject cruiseObject=null;
+        JSONObject cruisedataObject=null;
         ArrayList<CruiseCabin> cpList=new ArrayList<>();
 
         try {
-            Log.d("res..", "getPackageList: "+result);
+            Log.d("res..1", "getPackageList: "+result);
             cruiseArray=new JSONArray(result);
+            Log.d("res..2", "getPackageList: "+cruiseArray.toString());
+          //  Log.d("res..3", "getPackageList: "+cruiseArray["Cabins"]);
             for(int i=0;i<cruiseArray.length();i++)
             {
-                CruiseCabin c=new CruiseCabin();
-                cruiseObject = cruiseArray.getJSONObject(i);
-                c.setType(cruiseObject.getString("Type"));
-                c.setCabinSize(cruiseObject.getString("CabinSize"));
-                c.setConnectedRooms(cruiseObject.getString("ConnectedRooms"));
-                c.setAccessibleRooms(cruiseObject.getString("AccessibleRooms"));
-                c.setPrice(cruiseObject.getDouble("Price"));
-                c.setImage(cruiseObject.getString("Image"));
-                c.setMaximumPassengers(cruiseObject.getString("MaximumPassengers"));
-                c.setTotalCabins(cruiseObject.getString("TotalCabins"));
 
-                cpList.add(c);
+
+                cruiseObject = cruiseArray.getJSONObject(i);
+                Log.d("res.....4", "getCabinList: "+cruiseObject);
+                cruiseObjArr=cruiseObject.getJSONArray("Cabins");
+                Log.d("res..41", "getPackageList: "+cruiseObjArr.toString());
+                for(int j=0;j<cruiseObjArr.length();i++)
+                {
+                    CruiseCabin c=new CruiseCabin();
+                    cruisedataObject = cruiseObjArr.getJSONObject(i);
+                    Log.d("res.....5", "getCabinList: "+cruisedataObject);
+                    c.setType(cruisedataObject.getString("Type"));
+                    c.setCabinSize(cruisedataObject.getString("CabinSize"));
+                    c.setConnectedRooms(cruisedataObject.getString("ConnectedRooms"));
+                    c.setAccessibleRooms(cruisedataObject.getString("AccessibleRooms"));
+                    c.setPrice(cruisedataObject.getDouble("Price"));
+                    c.setImage(cruisedataObject.getString("Image"));
+                    c.setMaximumPassengers(cruisedataObject.getString("MaximumPassengers"));
+                    c.setTotalCabins(cruisedataObject.getString("TotalCabins"));
+                    cpList.add(c);
+                }
+
+
+
             }
 
         } catch (JSONException e) {
