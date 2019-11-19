@@ -55,6 +55,10 @@ public class CustomCabinAdapter extends RecyclerView.Adapter<CustomCabinAdapter.
                 @Override
                 public void onClick(View v) {
                     Intent orderIntent=new Intent(itemView.getContext(),CheckoutTrip.class);
+                    orderIntent.putExtra("ctype",txtType.getText());
+                    orderIntent.putExtra("cprice",txtPrice.getText());
+                    orderIntent.putExtra("cruisename",txtPrice.getText());
+
                     itemView.getContext().startActivity(orderIntent);
                 }
             });
