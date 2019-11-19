@@ -19,6 +19,7 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
 
     CustomActivitiesAdapter customActivitiesAdapter;
     CustomMapAdapter customMapAdapter;
+    CustomCabinAdapter customCabinAdapter;
     RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,11 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
                 case "CabinDetails":
                     ArrayList<CruiseCabin> cabinList=getCabinList(cabin_str);
                     Log.d("res ..a", "onCreate: "+cabinList.get(0).getType());
-                    //customMapAdapter=new CustomMapAdapter(packagesList);
-                    //recyclerView.setAdapter(customMapAdapter);
+                    customCabinAdapter=new CustomCabinAdapter(cabinList);
+                    recyclerView.setAdapter(customCabinAdapter);
+                    break;
+                case "Decks":
+                  //  Log.d(TAG, "onCreate: "+);
                     break;
 
             }
