@@ -123,7 +123,9 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
                 break;
             case "Decks":
                 Log.d("res....", "on decks : "+res[1]);
-                startActivityIntent(res[1],"itemlist","Decks");
+                intent_activity=new Intent(CruiseDetailActivity.this,DeckActivity.class);
+                intent_activity.putExtra("itemlist",res[1].split(","));
+                startActivity(intent_activity);
                 break;
         }
     }

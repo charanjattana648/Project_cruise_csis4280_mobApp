@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements OnEventListener<String>
 {
@@ -107,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
         btn_find_Cruise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               // Set<String> cruiseNamelist = new LinkedHashSet<String>();
                 //filterNames
                 String site=pc.getIp(MainActivity.this);
                 site+="filterNames";
@@ -139,11 +142,19 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
                     i++;
                 }
 
+//                list3.addAll(Arrays.asList(array1));
+//                list3.addAll(Arrays.asList(array2));
+//                String array3[] = list3.toArray(new String[list3.size()]);
+                String[] fa=field_str.split(",");
+                String[] fb=fieldValues_str.split(",");
+                Log.d("test..a", "onClick: "+Arrays.toString(fa));
+                Log.d("test..b", "onClick: "+Arrays.toString(fb));
                 if(i==0)
                 {
                     new DownloadAsync(MainActivity.this).execute(site,"");
                 }else{
                     String params=pc.putParamsTogether(field_str.split(","),fieldValues_str.split(","));
+                    Log.d("site param data..", "onClick: "+params);
                     new DownloadAsync(MainActivity.this).execute(site,params);
                 }
                 //intent=new Intent(MainActivity.this,CruiseRVListActivity.class);
@@ -191,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
                     Log.d("ffil --", "onSuccess: "+res[1]);
                     String site=pc.getIp(MainActivity.this);
                     site+="cruiseList";
-                    String r=res[1].trim()+",Carnival Dream";
+                    String r=res[1].trim();
                     String[] field={"cruiseName"};
                     String[] value={r};
                     String params=pc.putParamsTogether(field,value);

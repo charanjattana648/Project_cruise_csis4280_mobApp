@@ -17,7 +17,7 @@ public class ParamConcatenation {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < field_values.length; i++) {
             try {
-                field_values[i] = URLEncoder.encode(field_values[i], "UTF-8");
+                field_values[i] = URLEncoder.encode(field_values[i].trim(), "UTF-8");
             } catch (UnsupportedEncodingException err) {
                 err.printStackTrace();
             }

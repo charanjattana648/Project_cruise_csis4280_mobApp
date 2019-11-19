@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CheckoutTrip"></activity>
+        <activity android:name=".DeckActivity"></activity>
+        <activity android:name=".CheckoutTrip" />
         <activity android:name=".CruiseActivitiesAndCabin" />
         <activity android:name=".CruiseDetailActivity" />
         <activity android:name=".CruiseRVListActivity" />
