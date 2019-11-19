@@ -167,7 +167,6 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
     @Override
     public void onSuccess(String result) {
         Log.d("test data...", "onSuccess: "+result);
-
             String[] res=result.split("@:");
 
             switch (res[0].trim())
