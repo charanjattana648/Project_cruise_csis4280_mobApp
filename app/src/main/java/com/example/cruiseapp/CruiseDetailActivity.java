@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class CruiseDetailActivity extends AppCompatActivity implements View.OnClickListener ,OnEventListener<String>{
 
-    ImageView cabin, map ,dining , activity , entertainment;
+    ImageView cabin, map ,dining , activity , entertainment,deck;
     Intent intent_activity;
     ParamConcatenation pc=new ParamConcatenation();
     private String field[]={"cruiseName"};
@@ -35,13 +35,14 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
         dining = (ImageView) findViewById(R.id.view_dining);
         activity = (ImageView) findViewById(R.id.view_Activity);
         entertainment = (ImageView) findViewById(R.id.view_entertainment);
-
+        deck=findViewById(R.id.view_deck);
 
         cabin.setOnClickListener(this);
         map.setOnClickListener(this);
         dining.setOnClickListener(this);
         activity.setOnClickListener(this);
         entertainment.setOnClickListener(this);
+        deck.setOnClickListener(this);
 
     }
 
@@ -88,6 +89,13 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
                 param=pc.putParamsTogether(field,value);
                 new DownloadAsync(CruiseDetailActivity.this).execute(site,param);
                 break;
+            case R.id.view_deck:
+                site=pc.getIp(CruiseDetailActivity.this);
+                site+="decks";
+                param=pc.putParamsTogether(field,value);
+                new DownloadAsync(CruiseDetailActivity.this).execute(site,param);
+                break;
+
         }
     }
 
@@ -112,6 +120,12 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
             case "Cabins":
                 Log.d("res....", "on cabins : "+res[1]);
                 startActivityIntent(res[1],"cabin","CabinDetails");
+                break;
+            case "Decks":
+                Log.d("res....", "on decks : "+res[1]);
+                intent_activity=new Intent(CruiseDetailActivity.this,DeckActivity.class);
+                intent_activity.putExtra("itemlist",res[1].split(","));
+                startActivity(intent_activity);
                 break;
         }
     }

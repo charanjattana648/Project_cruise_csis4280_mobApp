@@ -76,16 +76,12 @@
 
     <ImageView
         android:id="@+id/view_cabin"
-        android:layout_width="334dp"
-        android:layout_height="130dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="131dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="64dp"
         android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cab" />
@@ -189,4 +185,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:srcCompat="@drawable/din" />
+
+    <ImageView
+        android:id="@+id/view_deck"
+        android:layout_width="131dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/view_cabin"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nameship"
+        tools:srcCompat="@tools:sample/avatars" />
 </android.support.constraint.ConstraintLayout>
