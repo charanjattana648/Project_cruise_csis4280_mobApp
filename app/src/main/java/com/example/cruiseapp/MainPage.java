@@ -16,11 +16,11 @@ public class MainPage extends AppCompatActivity {
         Button b1 = (Button)findViewById(R.id.signUpBtn);
         Button b2 = (Button)findViewById(R.id.signInbtn);
 
-
+//change this later
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainPage.this, SignUp.class);
+                Intent i = new Intent(MainPage.this, Review.class);
                 startActivity(i);
             }
         });
