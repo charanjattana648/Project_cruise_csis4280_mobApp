@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +22,7 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
     CustomMapAdapter customMapAdapter;
     CustomCabinAdapter customCabinAdapter;
     RecyclerView recyclerView;
+    String itemname="",cruiseName="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +32,10 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
         recyclerView=findViewById(R.id.activity_recyclerView);
         if(intent!=null)
         {
-            String[] res=intent.getStringArrayExtra("itemlist");
-            String itemname=intent.getStringExtra("itemname");
+           String[] res=intent.getStringArrayExtra("itemlist");
+           itemname=intent.getStringExtra("itemname");
+            cruiseName=intent.getStringExtra("cruiseName");
+           Toast.makeText(this, " hello  ... "+itemname, Toast.LENGTH_SHORT).show();
            String packageList=intent.getStringExtra("package");
            String cabin_str=intent.getStringExtra("cabin");
            if(res!=null)
@@ -60,16 +64,13 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
                 case "CabinDetails":
                     ArrayList<CruiseCabin> cabinList=getCabinList(cabin_str);
                     Log.d("res ..a", "onCreate: "+cabinList.get(0).getType());
-                    customCabinAdapter=new CustomCabinAdapter(cabinList);
+                    customCabinAdapter=new CustomCabinAdapter(cabinList,cruiseName);
                     recyclerView.setAdapter(customCabinAdapter);
                     break;
                 case "Decks":
                   //  Log.d(TAG, "onCreate: "+);
                     break;
-
             }
-
-
             LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
             recyclerView.setLayoutManager(linearLayoutManager);
         }
@@ -91,8 +92,6 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
           //  Log.d("res..3", "getPackageList: "+cruiseArray["Cabins"]);
             for(int i=0;i<cruiseArray.length();i++)
             {
-
-
                 cruiseObject = cruiseArray.getJSONObject(i);
                 Log.d("res.....4", "getCabinList: "+cruiseObject);
                 cruiseObjArr=cruiseObject.getJSONArray("Cabins");
@@ -112,9 +111,6 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
                     c.setTotalCabins(cruisedataObject.getString("TotalCabins"));
                     cpList.add(c);
                 }
-
-
-
             }
 
         } catch (JSONException e) {

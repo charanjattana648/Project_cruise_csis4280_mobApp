@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -16,8 +17,10 @@ import java.util.ArrayList;
 public class CustomCabinAdapter extends RecyclerView.Adapter<CustomCabinAdapter.myCustomCabinHolder> {
 
     private ArrayList<CruiseCabin> cruiseCabinsList=new ArrayList<>();
-    public CustomCabinAdapter(ArrayList<CruiseCabin> cruiseCabinsList){
+    private String cruiseName="";
+    public CustomCabinAdapter(ArrayList<CruiseCabin> cruiseCabinsList,String cruiseName){
         this.cruiseCabinsList=cruiseCabinsList;
+        this.cruiseName=cruiseName;
     }
 
     @NonNull
@@ -54,11 +57,12 @@ public class CustomCabinAdapter extends RecyclerView.Adapter<CustomCabinAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent orderIntent=new Intent(itemView.getContext(),CheckoutTrip.class);
-                    orderIntent.putExtra("ctype",txtType.getText());
-                    orderIntent.putExtra("cprice",txtPrice.getText());
-                    orderIntent.putExtra("cruisename",txtPrice.getText());
 
+                    Intent orderIntent=new Intent(itemView.getContext(),CheckoutTrip.class);
+                    orderIntent.putExtra("ctype",txtType.getText().toString());
+                    orderIntent.putExtra("cprice",txtPrice.getText().toString());
+                    orderIntent.putExtra("cruisename",cruiseName);
+                    Toast.makeText(itemView.getContext(), ""+txtPrice.getText().toString(), Toast.LENGTH_SHORT).show();
                     itemView.getContext().startActivity(orderIntent);
                 }
             });

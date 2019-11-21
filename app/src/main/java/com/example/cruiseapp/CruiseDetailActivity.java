@@ -14,6 +14,7 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
     ImageView cabin, map ,dining , activity , entertainment,deck;
     Intent intent_activity;
     ParamConcatenation pc=new ParamConcatenation();
+    static String cruiseName="";
     private String field[]={"cruiseName"};
     Intent intent;
     private static String[] value=new String[1];
@@ -26,7 +27,7 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
         {
             String itemname=intent.getStringExtra("name");
             Toast.makeText(this, ""+intent.getStringExtra("name"), Toast.LENGTH_SHORT).show();
-           // Log.d("name cdactivity", "onCreate: "+);
+            cruiseName=itemname;
             value[0]=itemname;
         }
 
@@ -106,37 +107,38 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
         switch (res[0].trim())
         {
             case "Activity":
-                startActivityIntent(res[1],"itemlist","Activity");
+                startActivityIntent(res[1],"itemlist","Activity",cruiseName);
                 break;
             case "Entertainment":
-                startActivityIntent(res[1],"itemlist","Entertainment");
+                startActivityIntent(res[1],"itemlist","Entertainment",cruiseName);
                 break;
             case "Dining":
-                startActivityIntent(res[1],"itemlist","Dining");
+                startActivityIntent(res[1],"itemlist","Dining",cruiseName);
                 break;
             case "RouteDetails":
-                startActivityIntent(res[1],"package","RouteDetails");
+                startActivityIntent(res[1],"package","RouteDetails",cruiseName);
                 break;
             case "Cabins":
                 Log.d("res....", "on cabins : "+res[1]);
-                startActivityIntent(res[1],"cabin","CabinDetails");
+                startActivityIntent(res[1],"cabin","CabinDetails",cruiseName);
                 break;
             case "Decks":
                 Log.d("res....", "on decks : "+res[1]);
                 intent_activity=new Intent(CruiseDetailActivity.this,DeckActivity.class);
                 intent_activity.putExtra("itemlist",res[1].split(","));
+                intent_activity.putExtra("cruisename",res[1].split(","));
                 startActivity(intent_activity);
                 break;
         }
     }
 
-    public void startActivityIntent(String res,String listname,String name)
+    public void startActivityIntent(String res,String listname,String name,String cname)
     {
         intent_activity=new Intent(CruiseDetailActivity.this,CruiseActivitiesAndCabin.class);
         intent_activity.putExtra("itemname",name);
+        intent_activity.putExtra("cruiseName",cname);
         if(listname.equalsIgnoreCase("itemlist"))
         {
-
             intent_activity.putExtra(listname,res.split(","));
         }else{
             intent_activity.putExtra(listname,res);
