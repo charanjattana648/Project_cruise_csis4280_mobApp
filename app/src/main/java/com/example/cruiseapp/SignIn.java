@@ -1,14 +1,20 @@
 package com.example.cruiseapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SignIn extends AppCompatActivity implements OnEventListener<String>{
 
@@ -16,6 +22,7 @@ public class SignIn extends AppCompatActivity implements OnEventListener<String>
     Button btn_login;
     Intent mainActivity_intent;
     ParamConcatenation pc=new ParamConcatenation();
+    public static final String MY_PREFS_NAME = "Myshareduserdata";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +57,25 @@ public class SignIn extends AppCompatActivity implements OnEventListener<String>
 
     @Override
     public void onSuccess(String result) {
-        String res[]=result.split(":");
-        Toast.makeText(this, ""+result, Toast.LENGTH_SHORT).show();
+        String res[]=result.split("@:");
+        JSONArray jsonArray=null;
+        JSONObject userObj=null;
+        try {
+            jsonArray=new JSONArray(res[1]);
+            userObj=jsonArray.getJSONObject(0);
+            Log.d("fname..", "onSuccess: "+userObj.getString("firstName"));
+            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+            editor.putString("fname", userObj.getString("firstName"));
+            editor.putString("lname", userObj.getString("lastName"));
+            editor.putString("email", userObj.getString("email"));
+            editor.apply();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        Toast.makeText(this, ""+res[2], Toast.LENGTH_SHORT).show();
         startActivity(mainActivity_intent);
     }
 

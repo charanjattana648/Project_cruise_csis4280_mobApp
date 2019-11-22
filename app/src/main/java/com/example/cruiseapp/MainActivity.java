@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_m);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 //        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_black);
 //        getActionBar().setHomeButtonEnabled(true);

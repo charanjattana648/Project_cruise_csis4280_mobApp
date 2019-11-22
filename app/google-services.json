@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "914090106371",
+    "firebase_url": "https://cruisetour-1f91a.firebaseio.com",
+    "project_id": "cruisetour-1f91a",
+    "storage_bucket": "cruisetour-1f91a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914090106371:android:7c21f6b3ed587215ba7836",
+        "android_client_info": {
+          "package_name": "com.example.cruiseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914090106371-tgrkpd8agfm6ki4ebri4jg0gnp3c3ukm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cruiseapp",
+            "certificate_hash": "281a5f3e28338700454e229c4e5e5c148842d524"
+          }
+        },
+        {
+          "client_id": "914090106371-sqo2luic48uvmnldgadnk74ut9gbfnjq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cruiseapp",
+            "certificate_hash": "e9e400ffdb1c7529629a62a54f13f67a61110045"
+          }
+        },
+        {
+          "client_id": "914090106371-qliavoqc9gt4t09or8g2dttgqgdj2fq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAROQwHLE578I5XQ1jl3pvt3VOxRpXM5Tc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914090106371-qliavoqc9gt4t09or8g2dttgqgdj2fq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

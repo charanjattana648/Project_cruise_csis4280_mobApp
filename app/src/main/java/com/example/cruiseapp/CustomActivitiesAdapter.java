@@ -85,5 +85,7 @@ public class CustomActivitiesAdapter  extends RecyclerView.Adapter<CustomActivit
 
         }
     }
+
+
 }
 
