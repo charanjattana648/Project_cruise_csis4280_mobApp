@@ -5,34 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/cardview_dark_background"
-    android:paddingBottom="20sp"
+
     android:orientation="vertical"
     tools:context=".CheckoutTrip">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:background="@drawable/grey_bg"
-        android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#5F5E5C">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:clickable="true"
-                android:onClick="open_drawer"
-                android:paddingLeft="20dp"
-                android:src="@drawable/ic_menu">
-
-            </ImageView>
-
-        </RelativeLayout>
-
-    </LinearLayout>
 
 
 
@@ -63,24 +39,24 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/backedit_headings"
             android:gravity="center"
 
+            android:text="Selected Cruise:"
             android:textColor="@android:color/background_light"
             android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="Selected Cruise:"
-             />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_cruiseName"
-            android:layout_width="200dp"
+            android:layout_width="171dp"
             android:layout_height="wrap_content"
 
             android:layout_marginLeft="10dp"
@@ -116,7 +92,7 @@
 
         <Spinner
             android:id="@+id/spinner_package"
-            android:layout_width="200dp"
+            android:layout_width="183dp"
             android:layout_height="28dp"
 
             android:layout_marginLeft="10dp"
@@ -138,8 +114,8 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/backedit_headings"
@@ -153,7 +129,7 @@
 
         <TextView
             android:id="@+id/txt_dest"
-            android:layout_width="200dp"
+            android:layout_width="199dp"
             android:layout_height="wrap_content"
 
             android:layout_marginLeft="10dp"
@@ -190,7 +166,7 @@
         <Spinner
             android:id="@+id/spinner_deck"
 
-            android:layout_width="200dp"
+            android:layout_width="184dp"
             android:layout_height="28dp"
 
             android:layout_marginLeft="10dp"
@@ -227,7 +203,7 @@
 
         <TextView
             android:id="@+id/txt_cabin_type"
-            android:layout_width="200dp"
+            android:layout_width="181dp"
             android:layout_height="wrap_content"
 
             android:layout_marginLeft="10dp"
@@ -248,8 +224,8 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/textView16"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/backedit_headings"
@@ -299,7 +275,7 @@
 
         <TextView
             android:id="@+id/txt_Price"
-            android:layout_width="200dp"
+            android:layout_width="179dp"
             android:layout_height="wrap_content"
 
             android:layout_marginLeft="10dp"
@@ -335,7 +311,7 @@
 
         <EditText
             android:id="@+id/et_num_people"
-            android:layout_width="200dp"
+            android:layout_width="177dp"
             android:layout_height="wrap_content"
 
             android:layout_marginLeft="10dp"
@@ -343,24 +319,24 @@
 
             android:background="@drawable/backedit"
 
+            android:ems="10"
+            android:inputType="number"
             android:padding="5dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:ems="10"
-            android:inputType="number"
-           />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_margin="5dp"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/button_continue_payment"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
 
             android:layout_centerInParent="true"
             android:layout_marginStart="25dp"
@@ -371,10 +347,9 @@
             android:background="@drawable/rectangle"
 
 
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
             android:text="Continue Payment"
-            />
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>
