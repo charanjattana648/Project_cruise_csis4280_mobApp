@@ -1,153 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="20sp">
+    android:background="@color/cardview_dark_background"
+    android:paddingBottom="20sp"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_sail"
-        android:layout_width="307dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="124dp"
-        app:layout_constraintStart_toEndOf="@+id/lbl_cGuest"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/lbl_cSail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="124dp"
-        android:text="Sails To :"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+        <ImageView
+            android:id="@+id/cruise_imageView"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/txt_guest3"
-        android:layout_width="80dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toEndOf="@+id/lbl_cGuest"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/lbl_cGuest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="60dp"
-        android:text="Guests :"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txt_Depart"
-        android:layout_width="288dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toEndOf="@+id/lbl_cDepart"
-        app:layout_constraintTop_toBottomOf="@+id/txt_cruiseName_val" />
+        <TextView
+            android:id="@+id/lbl_cName"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backedit_headings"
+            android:gravity="center"
 
-    <TextView
-        android:id="@+id/lbl_cDepart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="88dp"
-        android:text="Departs from :"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+            android:textColor="@android:color/background_light"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Company Name"
 
-    <TextView
-        android:id="@+id/txt_crew"
-        android:layout_width="80dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        app:layout_constraintStart_toEndOf="@+id/lbl_cCrew"
-        app:layout_constraintTop_toBottomOf="@+id/txt_cruiseName_val" />
+             />
 
-    <TextView
-        android:id="@+id/lbl_cCrew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
-        android:layout_marginLeft="196dp"
-        android:layout_marginTop="60dp"
-        android:text="Crew :"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+        <TextView
+            android:id="@+id/txt_cname_val"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
 
-    <ImageView
-        android:id="@+id/cruise_imageView"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
 
-    <TextView
-        android:id="@+id/lbl_cName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="14dp"
-        android:text="Company Name"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+            android:background="@drawable/backedit"
 
-    <TextView
-        android:id="@+id/txt_cname_val"
-        android:layout_width="196dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toEndOf="@+id/lbl_cName"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
 
-    <TextView
-        android:id="@+id/txt_cruiseName"
-        android:layout_width="103dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Cruise Name : "
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cruise_imageView" />
+            />
 
-    <TextView
-        android:id="@+id/txt_cruiseName_val"
-        android:layout_width="197dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="244dp"
-        app:layout_constraintStart_toEndOf="@+id/txt_cruiseName"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/txt_cruiseName"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backedit_headings"
+            android:gravity="center"
+
+            android:textColor="@android:color/background_light"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Cruise Name : "
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.027"
+            />
+
+        <TextView
+            android:id="@+id/txt_cruiseName_val"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/txt_cruiseName"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lbl_cGuest"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backedit_headings"
+            android:gravity="center"
+
+            android:textColor="@android:color/background_light"
+            android:textSize="20dp"
+
+            android:text="Guests :"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+
+             />
+        <TextView
+            android:id="@+id/txt_guest3"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+
+
+             />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_cCrew"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backedit_headings"
+            android:gravity="center"
+
+            android:textColor="@android:color/background_light"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Crew :"
+
+
+            />
+        <TextView
+            android:id="@+id/txt_crew"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_cDepart"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backedit_headings"
+            android:gravity="center"
+
+            android:textColor="@android:color/background_light"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Departs from :"
+
+             />
+
+        <TextView
+            android:id="@+id/txt_Depart"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+
+             />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/lbl_cSail"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/backedit_headings"
+            android:gravity="center"
+
+            android:textColor="@android:color/background_light"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Sails To :"
+             />
+
+
+
+        <TextView
+            android:id="@+id/txt_sail"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

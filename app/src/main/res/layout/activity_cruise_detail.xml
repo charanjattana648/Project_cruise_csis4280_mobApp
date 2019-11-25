@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/cardview_dark_background"
     tools:context=".CruiseDetailActivity">
 
     <TextView
@@ -17,6 +17,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="entertainment"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -35,6 +36,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="dining"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -53,6 +55,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Deck activities"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -63,13 +66,18 @@
 
     <TextView
         android:id="@+id/txt_Nameship"
-        android:layout_width="251dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="309dp"
+        android:layout_height="43dp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:background="@drawable/backedit"
+
+        android:padding="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -79,12 +87,11 @@
         android:layout_width="131dp"
         android:layout_height="112dp"
         android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
         android:layout_marginTop="64dp"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cab" />
+        app:srcCompat="@drawable/csb" />
 
     <ImageView
         android:id="@+id/view_Activity"
@@ -140,16 +147,15 @@
         android:layout_width="183dp"
         android:layout_height="26dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="select a cabin"
         android:textAllCaps="true"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_cabin" />
 
@@ -162,6 +168,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:text="maps"
         android:textAllCaps="true"
         android:textSize="18sp"
@@ -191,13 +198,24 @@
         android:layout_width="131dp"
         android:layout_height="112dp"
         android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/view_cabin"
         app:layout_constraintTop_toBottomOf="@+id/txt_Nameship"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/dec" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="183dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="select deck"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_deck" />
 </android.support.constraint.ConstraintLayout>
