@@ -53,15 +53,7 @@ public class ChatActivity extends AppCompatActivity {
         db=FirebaseDatabase.getInstance();
         currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         date = new SimpleDateFormat("ddMMyyyy").format(new Date());
-        //HashMap<String,String> message=new HashMap<>();
-
-//        message.put("userName","csj");
-//        message.put("userEmail","csj@648gmail.com");
-//        message.put("time",currentDateTimeString);
-//        message.put("message","Hello EveryOne!!");
-
         dbRef=db.getReference("groupChat").child(date).child("users");
-        //dbRef.setValue("hello add");
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,8 +81,6 @@ public class ChatActivity extends AppCompatActivity {
                 for(DataSnapshot ds:dataSnapshot.getChildren()) {
                       Message m = ds.getValue(Message.class);
                       mlist.add(m);
-
-
                       Toast.makeText(ChatActivity.this, "" + m.getMessage(), Toast.LENGTH_SHORT).show();
                      }
                 chatAdapter=new ChatAdapter(mlist);

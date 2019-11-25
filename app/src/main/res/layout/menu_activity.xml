@@ -12,7 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+<<<<<<< HEAD
         android:layout_gravity="start"
+=======
+>>>>>>> b0d3b4fb91f334c09aad8b9eafa61214d71e1465
         android:background="#fff">
 
         <RelativeLayout
