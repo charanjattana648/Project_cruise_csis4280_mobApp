@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -150,4 +151,6 @@ public class CruiseActivitiesAndCabin extends AppCompatActivity {
     }
 
 
+    public void open_drawer(View view) {
+    }
 }

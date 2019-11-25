@@ -158,4 +158,7 @@ public class CheckoutTrip extends AppCompatActivity implements OnEventListener<S
     public void onFailure(String result) {
 
     }
+
+    public void open_drawer(View view) {
+    }
 }

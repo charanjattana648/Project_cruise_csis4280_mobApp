@@ -4,27 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/picback"
+    android:background="@drawable/wts"
     tools:context=".Welcome" >
 
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="372dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="168dp"
-        android:text="Welcome to Paradise"
-        android:textAllCaps="true"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/bungee_shade"
+        android:layout_width="269dp"
+        android:layout_height="35dp"
+
+        android:layout_centerInParent="true"
+        android:layout_marginStart="25dp"
+
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rectangle"
+
+        android:text="Welcome to Cruise booking!!"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.652"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.663"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 </android.support.constraint.ConstraintLayout>

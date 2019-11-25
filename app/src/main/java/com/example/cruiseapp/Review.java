@@ -115,4 +115,7 @@ public class Review extends AppCompatActivity implements OnEventListener<String>
         cruiseName_adapter=new ArrayAdapter<String>(Review.this,android.R.layout.simple_list_item_1,cruiseNamesList);
         spinner.setAdapter(cruiseName_adapter);
     }
+
+    public void open_drawer(View view) {
+    }
 }

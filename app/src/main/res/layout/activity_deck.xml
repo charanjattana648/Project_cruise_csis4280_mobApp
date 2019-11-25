@@ -4,32 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
     tools:context=".DeckActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:background="@drawable/grey_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#5F5E5C">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="open_drawer"
+                android:paddingLeft="20dp"
+                android:src="@drawable/ic_menu">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
 
     <Spinner
         android:id="@+id/spinner_deck"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="332dp"
+        android:layout_height="37dp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="92dp"
+
+        android:layout_marginRight="10dp"
+
+        android:background="@drawable/backedit"
+        android:padding="5dp"
         android:spinnerMode="dropdown"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="409dp"
+        android:layout_height="589dp"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_deck">
+        app:layout_constraintTop_toBottomOf="@+id/spinner_deck"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <ImageView
             android:id="@+id/deck_imgView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             tools:srcCompat="@tools:sample/avatars" />
     </android.support.v4.widget.NestedScrollView>
 

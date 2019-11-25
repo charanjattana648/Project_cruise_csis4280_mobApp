@@ -1,103 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/picback"
-
-    android:icon="@drawable/ic_menu_black"
-    android:label="Home"
+    android:layout_height="wrap_content"
+    android:background="@color/cardview_dark_background"
+    android:paddingBottom="20sp"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:background="@drawable/grey_bg"
+        android:orientation="vertical">
 
-    <android.support.design.widget.NavigationView
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"
-        app:menu="@menu/nav_menu">
-        <!--app:headerLayout="@layout/header_layout"-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#5F5E5C">
 
-    </android.support.design.widget.NavigationView>
-    <Spinner
-        android:id="@+id/selectDest_spinner"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:prompt="@string/selectDest"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.232" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="open_drawer"
+                android:paddingLeft="20dp"
+                android:src="@drawable/ic_menu">
 
-    <Spinner
-        android:id="@+id/selectDay_spinner"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:prompt="@string/selectDay"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358" />
+            </ImageView>
 
-    <Button
-        android:id="@+id/findCruise_btn"
-        android:layout_width="188dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
-        android:text="Find a cruise"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.489" />
+        </RelativeLayout>
 
-    <Spinner
-        android:id="@+id/selectCruise_spinner"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:prompt="@string/selectCruise"
+    </LinearLayout>
 
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/selectDest_spinner"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:prompt="@string/selectDest"
+            android:spinnerMode="dropdown"
+             />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/selectDay_spinner"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:prompt="@string/selectDay"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.966"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:layout_constraintVertical_bias="0.358" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/selectCruise_spinner"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/backedit"
+
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:prompt="@string/selectCruise"
+
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.966"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.093" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/findCruise_btn"
+
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+
+            android:layout_centerInParent="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/rectangle"
+
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Find a cruise"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.489" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
