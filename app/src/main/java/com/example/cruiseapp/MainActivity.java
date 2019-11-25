@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_m);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setLogo(R.drawable.ic_menu_black);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 //        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_black);
@@ -69,18 +70,9 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0) {
-//                    String site = pc.getIp(MainActivity.this);
-//                    site += "cruiseDestList";
-//                    String[] field = {"cruiseName"};
-//                    String[] value = {parent.getItemAtPosition(position).toString()};
-//                    String params = pc.putParamsTogether(field, value);
-//                    new DownloadAsync(MainActivity.this).execute(site, params);
                     changeSpinnerAdapter( "cruiseDestList", "cruiseName", parent.getItemAtPosition(position).toString().trim());
-                   // changeSpinnerAdapter( "daysList", "cruiseDestination", parent.getItemAtPosition(position).toString());
-
-                }
+                    }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -91,27 +83,15 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0) {
-//                    String site = pc.getIp(MainActivity.this);
-//                    site+="daysList";
-//                    String[] field={"cruiseDestination"};
-//                    String[] value = {parent.getItemAtPosition(position).toString()};
-//                    String params = pc.putParamsTogether(field, value);
-//                    new DownloadAsync(MainActivity.this).execute(site, params);
-
                     changeSpinnerAdapter( "daysList", "cruiseDestination", parent.getItemAtPosition(position).toString().trim());
                     Log.d("test da", "onClick: entering");
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
-
-
-
-
 
         btn_find_Cruise.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +152,14 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
 
     }
 
-    public void changeSpinnerAdapter(String siteFilter,String fieldName,String filtername)
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        Log.d("menu..", "onOptionsItemSelected: "+item.toString()+" --- "+item.getItemId());
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void changeSpinnerAdapter(String siteFilter, String fieldName, String filtername)
     {
         String site = pc.getIp(MainActivity.this);
         site+=siteFilter;

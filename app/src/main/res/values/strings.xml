@@ -4,6 +4,7 @@
     <string name="selectCruise">Select Cruise</string>
     <string name="selectDest">Select Destination</string>
     <string name="selectDay">Select Days</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

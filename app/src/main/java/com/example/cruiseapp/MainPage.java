@@ -20,7 +20,7 @@ public class MainPage extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainPage.this, Review.class);
+                Intent i = new Intent(MainPage.this, SignUp.class);
                 startActivity(i);
             }
         });

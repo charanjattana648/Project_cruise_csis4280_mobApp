@@ -50,9 +50,6 @@ public class SignIn extends AppCompatActivity implements OnEventListener<String>
                 new DownloadAsync(SignIn.this).execute(site,params);
             }
         });
-
-
-
     }
 
     @Override
@@ -73,8 +70,6 @@ public class SignIn extends AppCompatActivity implements OnEventListener<String>
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
         Toast.makeText(this, ""+res[2], Toast.LENGTH_SHORT).show();
         startActivity(mainActivity_intent);
     }
