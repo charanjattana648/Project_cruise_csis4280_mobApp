@@ -53,4 +53,7 @@ public class DeckActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void open_drawer(View view) {
+    }
 }

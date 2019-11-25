@@ -111,4 +111,7 @@ public class CruiseRVListActivity extends AppCompatActivity implements OnEventLi
     public void onFailure(String result) {
 
     }
+
+    public void open_drawer(View view) {
+    }
 }

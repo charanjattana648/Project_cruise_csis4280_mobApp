@@ -107,4 +107,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void open_drawer(View view) {
+    }
 }

@@ -150,4 +150,7 @@ public class CruiseDetailActivity extends AppCompatActivity implements View.OnCl
     public void onFailure(String result) {
 
     }
+
+    public void open_drawer(View view) {
+    }
 }

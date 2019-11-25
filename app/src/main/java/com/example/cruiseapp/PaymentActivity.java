@@ -89,5 +89,8 @@ public class PaymentActivity extends AppCompatActivity  implements OnEventListen
     public void onFailure(String result) {
 
     }
+
+    public void open_drawer(View view) {
+    }
 }
 

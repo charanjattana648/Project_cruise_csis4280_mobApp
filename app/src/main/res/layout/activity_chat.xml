@@ -7,6 +7,33 @@
     android:background="@color/cardview_dark_background"
     tools:context=".ChatActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:background="@drawable/grey_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#5F5E5C">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="open_drawer"
+                android:paddingLeft="20dp"
+                android:src="@drawable/ic_menu">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
     <EditText
         android:id="@+id/editText_message"
         android:layout_width="266dp"
@@ -65,9 +92,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_send"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintVertical_bias="0.154" />
 
 </android.support.constraint.ConstraintLayout>

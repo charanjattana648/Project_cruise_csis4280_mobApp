@@ -7,17 +7,45 @@
     android:background="@color/cardview_dark_background"
     tools:context=".Review">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:background="@drawable/grey_bg"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#5F5E5C">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="open_drawer"
+                android:paddingLeft="20dp"
+                android:src="@drawable/ic_menu"
+                tools:ignore="OnClick">
+
+            </ImageView>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="112dp"
         android:gravity="center_horizontal"
         android:text="We hope you enjoyed your trip"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RatingBar
