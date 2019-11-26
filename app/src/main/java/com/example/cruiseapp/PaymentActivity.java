@@ -62,6 +62,13 @@ public class PaymentActivity extends AppCompatActivity  implements OnEventListen
                 String field[]={"packageName","roomNumber","userName","numPeople","cabinType","totalPrice"};
                 String values[]={packageName,txtRoomNum.getText().toString(),email,numPeople,cabinType,totalPrice};
                 bookTicket(field,values);
+
+
+
+                Intent i = new Intent(PaymentActivity.this, MainActivity.class);
+                startActivity(i);
+
+
             }
             }
         });

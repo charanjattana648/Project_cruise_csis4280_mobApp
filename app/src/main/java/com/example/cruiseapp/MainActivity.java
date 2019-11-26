@@ -26,7 +26,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity implements OnEventListener<String>
 {
     ParamConcatenation pc=new ParamConcatenation();
-    Button btn_find_Cruise;
+    Button btn_find_Cruise  , btn_chat , btn_reviews;
     Intent intent;
     String data[];
     Spinner cruise_spinner,day_spinner,destination_spinner;
@@ -45,6 +45,16 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
 //        getActionBar().setHomeButtonEnabled(true);
 //        getActionBar().setDisplayHomeAsUpEnabled(true);
         btn_find_Cruise=findViewById(R.id.findCruise_btn);
+        btn_chat = findViewById(R.id.chat_btn);
+        btn_reviews=findViewById(R.id.review_btn);
+        btn_reviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, Review.class);
+                startActivity(i);
+            }
+        });
+
         cruise_spinner=findViewById(R.id.selectCruise_spinner);
         day_spinner=findViewById(R.id.selectDay_spinner);
         destination_spinner=findViewById(R.id.selectDest_spinner);
@@ -90,6 +100,17 @@ public class MainActivity extends AppCompatActivity implements OnEventListener<S
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        btn_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                Intent i = new Intent(MainActivity.this, ChatActivity.class);
+                startActivity(i);
             }
         });
 
