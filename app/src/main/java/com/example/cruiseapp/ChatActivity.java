@@ -63,8 +63,18 @@ public class ChatActivity extends AppCompatActivity {
                 message.setUserEmail(fname+" "+lname);
                 message.setUserName(email);
                 dbRef.push().setValue(message);
+                et_msg.setText("");
             }
         });
+        Toast.makeText(this, ""+chatListRV.getChildCount(), Toast.LENGTH_SHORT).show();
+        //
+
+//        chatAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+//            @Override
+//            public void onItemRangeInserted(int positionStart, int itemCount) {
+//                mManager.smoothScrollToPosition(mMessages, null, chatAdapter.getItemCount());
+//            }
+//        });
 
         Log.d(">>>>>>>>>>>>>", "onCreate: "+dbRef);
 
@@ -87,6 +97,7 @@ public class ChatActivity extends AppCompatActivity {
                 chatListRV.setAdapter(chatAdapter);
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(ChatActivity.this);
                 chatListRV.setLayoutManager(linearLayoutManager);
+                linearLayoutManager.setStackFromEnd(true);
                 Log.d(TAG, "Value is: " + dataSnapshot);
             }
 
